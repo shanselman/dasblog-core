@@ -76,7 +76,8 @@ steps:
     replaceExistingArchive: true
 
 - task: PublishPipelineArtifact@1
-  condition: and(succeeded(), eq(variables['imageName'], 'windows-latest'))
+#  condition: and(succeeded(), eq(variables['imageName'], 'windows-latest'))
+  condition: succeeded()
   inputs:
     targetPath: '$(Build.ArtifactStagingDirectory)/$(System.TeamProject)_$(Build.BuildNumber).zip'
     artifactName: $(System.TeamProject)_$(Build.BuildNumber)
